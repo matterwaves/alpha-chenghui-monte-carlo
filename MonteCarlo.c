@@ -9,7 +9,7 @@
 #include <time.h>
 #include <math.h>
 
-
+//Test
 double Detuning, fL, c, k, hbar, sigma_x, sigma_v, kB, M, t0, T, Tp1, TB;
 double Tp2, ztop, vr, omega_r, v_2nd_Bragg, g, Bragg_peak_rel, Bloch_peak_rel;
 int n, N;
