@@ -1,0 +1,24 @@
+PBS~CCD/Profiler 20
+PBS~Mirror 17
+PBS to bottom mirror 19
+Bottom to detection 29 
+Detection to top 65
+
+
+19+29-17 = 31
+
+65*2+29+19+20 = 130+30+20+20-2
+
+
+19+29-17 = 
+
+New 
+Mirror->Mirror2 17
+Mirror->bottom mirror 20
+Bottom->detection 29
+Detection->top 65
+
+Formula
+Dist after mirror = x
+Dist above detection = y
+Y = x+17-20-29 = x-32

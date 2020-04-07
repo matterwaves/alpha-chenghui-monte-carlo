@@ -1,0 +1,4 @@
+/Users/chenghuiyu/Dropbox/My Documents/Programs/Python/General Simulation/ReadBeam.c:17:25: error: initializer element is not a compile-time constant
+gsl_vector *beam_info = gsl_vector_alloc(8);
+                        ^~~~~~~~~~~~~~~~~~~
+1 error generated.
