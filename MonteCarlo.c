@@ -196,7 +196,7 @@ void set_parameters(void)
   Bloch_peak_rel = 0.2;
 }
 
-
+//This is where the movement of the atoms is actually simulated with 3D velocities and a time.
 void move(double *x, double *y, gsl_vector *z, double *vx, double *vy, gsl_vector *vz, double t)
 {
   *x = *x + *vx * t;
@@ -477,6 +477,7 @@ int MonteCarlo(int atom_number, int bin_size, int seed)
   return 0;
 }
 
+//This is where the actual Monte-Carlo simulation is being performe.
 int main()
 {
   int i, repeats = 200, atom_number = 500000, bin_size = 30;
