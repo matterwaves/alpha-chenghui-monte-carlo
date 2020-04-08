@@ -242,7 +242,7 @@ const gsl_rng_type * Type;
 gsl_rng * r;
 FILE *f_out;
 
-/* This is the function of the Monte-Carlo simulation that puts everything together. Feel free to add even more comments! */
+/* This is the function of the Monte-Carlo simulation that puts everything together. Feel free to add more comments! */
 int MonteCarlo(int atom_number, int bin_size, int seed)
 {
   int i, max_index;
