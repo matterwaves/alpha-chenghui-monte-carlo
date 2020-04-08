@@ -164,8 +164,7 @@ void Read_beam_data()
 }
 
 
-//Parameters
-//Laser
+/* DEFINITION of a lot of parameters for the system */
 void set_parameters(void)
 {
   /* The laser frequency is detuned by 14 GHz */
@@ -188,17 +187,24 @@ void set_parameters(void)
   M = 2.20694650e-25;
   //Atom Interferometer Parameters
   t0 = 1.24-1.12;
+  /* T is the pulse separation time in ms */
   T = 0.060;
+  /* WHAT ARE THE OTHER TIMES? */
   Tp1 = 0.005;
   TB = 0.008;
   Tp2 = 0.015;
   ztop = 65*0.0254;
+  /* Recoil velocity vr and recoil frequency omega_r for defined values */
   vr = hbar*k/M;
   omega_r = hbar*k*k/2/M;
+  /* Bragg diffraction order n=5 */
   n = 5;
+  /* N is the number of Bloch oscillations */
   N = 125;
   //Atom trajectory
+  /* WHAT IS THIS? */
   v_2nd_Bragg = 2.0480821101976;
+  /* g is gravity in m/s2 */
   g = 9.79958;
   //Parameters
   Bragg_peak_rel = 1.05;
@@ -210,6 +216,7 @@ void move(double *x, double *y, gsl_vector *z, double *vx, double *vy, gsl_vecto
 {
   *x = *x + *vx * t;
   *y = *y + *vy * t;
+  /* These are just the classical velocity and position functions with gravity that you know from basic physics courses */
   gsl_vector_set(z, 0, gsl_vector_get(z, 0)+gsl_vector_get(vz, 0)*t-0.5*g*t*t);
   gsl_vector_set(z, 1, gsl_vector_get(z, 1)+gsl_vector_get(vz, 1)*t-0.5*g*t*t);
   gsl_vector_set(vz, 0, gsl_vector_get(vz, 0)-g*t);
