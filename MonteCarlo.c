@@ -167,7 +167,7 @@ void Read_beam_data()
 /* DEFINITION of a lot of parameters for the system */
 void set_parameters(void)
 {
-  /* The laser frequency is detuned by 14 GHz */
+  /* The laser frequency is blue detuned by 14 GHz (see Science paper)*/
   Detuning = 14E+9;
   /* fL is the calculated laser frequency. QUESTION: Where do the 6+6 Hz come from? */
   fL =  3.517309021e+14+90E+6+80E+6+Detuning;
@@ -189,8 +189,8 @@ void set_parameters(void)
   t0 = 1.24-1.12;
   /* T is the pulse separation time in ms */
   T = 0.060;
-  /* WHAT ARE THE OTHER TIMES? */
   Tp1 = 0.005;
+  /* TB is the Bloch oscillation pulse separation time. */
   TB = 0.008;
   Tp2 = 0.015;
   ztop = 65*0.0254;
