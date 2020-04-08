@@ -9,7 +9,6 @@
 #include <time.h>
 #include <math.h>
 
-//Test
 double Detuning, fL, c, k, hbar, sigma_x, sigma_v, kB, M, t0, T, Tp1, TB;
 double Tp2, ztop, vr, omega_r, v_2nd_Bragg, g, Bragg_peak_rel, Bloch_peak_rel;
 int n, N;
@@ -131,9 +130,11 @@ void get_beam_amp_phase(gsl_vector *beam_info, gsl_matrix *beam_amp, gsl_matrix 
   //printf("amp, phase = %.15f, %.15f\n", *amp, *phase);
 }
 
+/* This is the function that reads the beam data (folders beam_up and beam_down) and saves their data in matrices/vectors. */
 void Read_beam_data()
 {
   //Beam Up
+  /* Beam_info gives the positions at which the beam profiles have been measured. Beam_amp and Beam_phase are the measured amplitude and phase from the detector. */
   FILE *f_in_info = fopen("beam_up/beam_info.txt", "r");
   FILE *f_in_amp = fopen("beam_up/beam_amp.txt", "r");
   FILE *f_in_phase = fopen("beam_up/beam_phase.txt", "r");
@@ -167,15 +168,23 @@ void Read_beam_data()
 //Laser
 void set_parameters(void)
 {
+  /* The laser frequency is detuned by 14 GHz */
   Detuning = 14E+9;
+  /* fL is the calculated laser frequency. QUESTION: Where do the 6+6 Hz come from? */
   fL =  3.517309021e+14+90E+6+80E+6+Detuning;
+  /* c is the of light in m/s */
   c = 2.99792458e+8;
+  /* Calculation of the wave vector for frequency fL. MPi doesn't have anything to do with a mass. It's just how Pi is defined in C. */
   k = 2*M_PI*fL/c;
+  /*Definition of hbar in SI units */
   hbar = 1.054571800E-34;
   //Atom distribution
+  /* sigmaX and sigmaY are the position deviations after VS in m. Correct me if I'm wrong! */
   sigma_x = 0.002;
   sigma_v = 0.0035;
+  /* kB is the Boltzmann constant in SI units */
   kB = 1.38064852e-23;
+  /* M is the cesium mass in kg */
   M = 2.20694650e-25;
   //Atom Interferometer Parameters
   t0 = 1.24-1.12;
@@ -226,6 +235,7 @@ const gsl_rng_type * Type;
 gsl_rng * r;
 FILE *f_out;
 
+/* This is the function of the Monte-Carlo simulation that puts everything together. Feel free to add even more comments! */
 int MonteCarlo(int atom_number, int bin_size, int seed)
 {
   int i, max_index;
@@ -477,7 +487,7 @@ int MonteCarlo(int atom_number, int bin_size, int seed)
   return 0;
 }
 
-//This is where the actual Monte-Carlo simulation is being performe.
+/* This is where the actual Monte-Carlo simulation is being performed using the Monte-Carlo function that is defined right above. */
 int main()
 {
   int i, repeats = 200, atom_number = 500000, bin_size = 30;
