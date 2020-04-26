@@ -1,3 +1,5 @@
+The first column is the intensity, the second column is the efficiency.
+
 0.1681038251290286 0
 0.1685 0.0114394766769
 0.1688 0.0204219926472
