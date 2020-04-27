@@ -164,7 +164,7 @@ void Hamiltonian(struct complex * dpsi, const struct complex * psi, double t)
           dpsi[i] = complex_add(dpsi[i],complex_mul(complex_mul_real(complex_exp(-phic+delta*t-4*(kc+2*(m0+i)+1)*t),beta*pulse(t)),psi[i+1]));
       }
     }
-    else //multi frequencies
+    else /* multi frequencies */
     {
       //alpha1 = (2*Omega1*Omega1+Omega2*Omega2)/4.0/Delta;
       //alpha2 = Omega1*Omega1/2.0/Delta;
